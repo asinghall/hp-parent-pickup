@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="face-api.js"></script>
+  <script src="./commons/faceDetection.js"></script>
+  <script src="FaceApiService.js"></script>
+  <script src="model.js"></script>
+</head>
+<body>
+
+<script>
+  let faceApiService = new FaceApiService();
+  faceApiService.init().then(x => {
+    let labelledFaceDEscriptor = faceApiService.getLabeledFacedDescriptor();
+    faceApiService.detectFace(labelledFaceDEscriptor, '1.jpeg').then(x => {
+      console.dir(x);
+    });
+  })
+</script>
+</body>
+</html>
